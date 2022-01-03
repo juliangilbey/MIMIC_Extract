@@ -270,7 +270,7 @@ def process_and_save_numerics(
         ["mean", "std", "count"]
     )
     X.columns = X.columns.droplevel(0)
-    X.columns.names = ["Aggregation Function"]
+    X.columns.names = ["Aggregation_Function"]
 
     data["max_hours"] = (data["outtime"] - data["intime"]).apply(to_hours)
 
@@ -287,7 +287,7 @@ def process_and_save_numerics(
     # Pivot table droups NaN columns so you lose any uniformly NaN.
     X = X.unstack(level=group_item_cols)
     X.columns = X.columns.reorder_levels(
-        order=group_item_cols + ["Aggregation Function"]
+        order=group_item_cols + ["Aggregation_Function"]
     )
 
     X = X.reindex(fill_df.index)
