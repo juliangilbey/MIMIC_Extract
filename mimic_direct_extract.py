@@ -1,10 +1,10 @@
-"""Extract a dataset for imputation experiments
+#!/usr/bin/env python3
 
-This is based on mimic_direct_extract.py, cleaned up, slimmed down to
-our needs and modified to extract the sort of dataset we require for our
-experiments.
+"""Extract data from MIMIC-III.
 
-The MIMIC-III data is stored in a PostgreSQL database.
+The MIMIC-III data is stored in a PostgreSQL database.  This script can
+also be called from the Makefile in `utils`, which uses a particular set
+of command line options.
 """
 
 import os
