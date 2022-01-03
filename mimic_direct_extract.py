@@ -42,7 +42,7 @@ NOTES_QUERY_PATH = os.path.join(SQL_DIR, "notes.sql")
 # Output filenames
 STATIC_FILENAME = "static_data.csv"
 
-DYNAMIC_FILENAME = "vitals_hourly_data.csv"
+DYNAMIC_FILENAME = "vitals_hourly_data.npy"
 COLUMNS_FILENAME = "vitals_colnames.txt"
 SUBJECTS_FILENAME = "subjects.npy"
 TIMES_FILENAME = "fenceposts.npy"
