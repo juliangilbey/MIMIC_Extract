@@ -5,8 +5,8 @@
   "license": "The use of data is conditional on citing the original data sources.",
   "resources": [
     {
-      "name": "outcome_hourly_tabular_data",
-      "path": "outcome_hourly_data.csv",
+      "name": "outcomes_hourly_tabular_data",
+      "path": "outcomes_hourly_data.csv",
       "format": "csv",
       "mediatype": "text/csv",
       "profile": "tabular-data-resource",
