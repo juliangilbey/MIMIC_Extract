@@ -6,14 +6,14 @@
 # Takes optional argument POP_SIZE
 #
 
-mkdir -p $MIMIC_EXTRACT_OUTPUT_DIR;
+mkdir -p $MIMIC_EXTRACT_OUTPUT_DIR
 
-if [[ -z $POP_SIZE ]]; then
+if [ -z $POP_SIZE ]; then
     # means extract all available data
-    POP_SIZE=0;
+    POP_SIZE=0
 fi
 
-python -u $MIMIC_EXTRACT_CODE_DIR/mimic_direct_extract.py \
+$MIMIC_EXTRACT_CODE_DIR/mimic_direct_extract.py \
     --out_path $MIMIC_EXTRACT_OUTPUT_DIR/ \
     --resource_path $MIMIC_EXTRACT_CODE_DIR/resources/ \
     --extract_pop 2 \
@@ -28,4 +28,4 @@ python -u $MIMIC_EXTRACT_CODE_DIR/mimic_direct_extract.py \
     --psql_password $DBPASSWORD \
     --psql_host $HOST \
     --psql_port $PORT \
-    --min_percent 0 \
+    --min_percent 0

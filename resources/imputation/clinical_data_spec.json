@@ -1,0 +1,76 @@
+{
+  "name": "clinical_data",
+  "title": "Chart data of ICU patients extracted from MIMIC-III",
+  "description": "Includes clinical and some laboratory data from hospital/ICU admissions",
+  "license": "The use of data is conditional on citing the original data sources.",
+  "resources": [
+    {
+      "name": "clinical_tabular_data",
+      "path": "clinical_data.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "profile": "tabular-data-resource",
+      "$schema": "https://frictionlessdata.io/schemas/table-schema.json",
+      "schema": {
+        "fields": [
+          {
+            "name": "subject_id",
+            "description": "ID number for subject within PATIENTS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "hadm_id",
+            "description": "ID number for subject within ADMISSIONS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "icustay_id",
+            "description": "ID number for subject within ICUSTAYS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "charttime",
+            "type": "datetime",
+            "description": "Datetime of recorded event",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "itemid",
+            "description": "ID number measurement type",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "description": "Measurement value for itemid if it is numeric",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "valueuom",
+            "type": "string",
+            "description": "Unit of measurement",
+            "pandas_dtype": "category"
+          }
+        ],
+        "missingValues": "nan",
+        "primaryKey": ["subject_id", "hadm_id", "icustay_id"]
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-import numpy as np
-import pandas as pd
-import datapackage
+import pandas as pd  # type: ignore
+import datapackage  # type: ignore
+
 
 def load_datapackage_schema(json_fpath, resource_id=0):
     """ Load schema object
@@ -12,9 +12,10 @@ def load_datapackage_schema(json_fpath, resource_id=0):
         fields : list of dict
             Each dict provides info about the field (data type, etc)
     """
-    spec = datapackage.DataPackage(json_fpath)
+    spec = datapackage.Package(json_fpath)
     schema = spec.resources[resource_id].schema
     return schema
+
 
 def load_sanitized_df_from_csv(csv_fpath, schema):
     """ Load dataframe from CSV that meets provided schema.
@@ -27,6 +28,7 @@ def load_sanitized_df_from_csv(csv_fpath, schema):
     """
     data_df = pd.read_csv(csv_fpath)
     return sanitize_df(data_df, schema)
+
 
 def save_sanitized_df_to_csv(csv_fpath, data_df, schema=None):
     """ Save sanitized df to .csv file
@@ -46,6 +48,7 @@ def save_sanitized_df_to_csv(csv_fpath, data_df, schema=None):
         getattr(data_df.index, 'name', None) is not None
         or getattr(data_df.index, 'names', [None])[0] is not None)
     data_df.to_csv(csv_fpath, index=has_non_numeric_index)
+
 
 def sanitize_df(data_df, schema, setup_index=True, missing_column_procedure='fill_zero'):
     """ Sanitize dataframe according to provided schema
@@ -80,5 +83,3 @@ def sanitize_df(data_df, schema, setup_index=True, missing_column_procedure='fil
         if setup_index:
             data_df = data_df.set_index(schema.primary_key)
     return data_df
-
-

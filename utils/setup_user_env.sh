@@ -4,6 +4,7 @@ export MIMIC_CODE_DIR=$(realpath ../../mimic-code)
 
 export MIMIC_EXTRACT_CODE_DIR=$(realpath ..)
 export MIMIC_EXTRACT_OUTPUT_DIR=$MIMIC_EXTRACT_CODE_DIR/data/curated
+export MIMIC_IMPUTATION_OUTPUT_DIR=$MIMIC_EXTRACT_CODE_DIR/data/imputation
 
 export DBUSER=mimic
 export DBNAME=mimic

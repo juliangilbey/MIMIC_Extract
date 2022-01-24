@@ -6,12 +6,18 @@ MIMIC_CODE_DIR:=${shell source ./setup_user_env.sh && echo $$MIMIC_CODE_DIR}
 
 #=== Commands
 
-.PHONY: build_curated_from_psql           
+.PHONY: build_curated_from_psql build_imputation
 
 build_curated_from_psql: setup_user_env.sh has_psql_exe   ## Build curated flat files from PSQL db, using this repo
 	{ \
 	source ./setup_user_env.sh; \
 	bash build_curated_from_psql.sh; \
+	}
+
+build_imputation: setup_user_env.sh has_psql_exe   ## Build imputation raw data from PSQL db, using this repo
+	{ \
+	source ./setup_user_env.sh; \
+	bash build_imputation_from_psql.sh $(OPTIONS); \
 	}
 
 #=== Required mimic-code/ repo

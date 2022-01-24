@@ -1,0 +1,155 @@
+{
+  "name": "static_patient_data",
+  "title": "Static attributes of ICU patients extracted from MIMIC-III",
+  "description": "Includes demographics and info about hospital/ICU admissions",
+  "license": "The use of data is conditional on citing the original data sources",
+  "resources": [
+    {
+      "name": "static_tabular_data",
+      "path": "population_data.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "profile": "tabular-data-resource",
+      "$schema": "https://frictionlessdata.io/schemas/table-schema.json",
+      "schema": {
+        "fields": [
+          {
+            "name": "subject_id",
+            "description": "ID number for subject within PATIENTS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "hadm_id",
+            "description": "ID number for subject within ADMISSIONS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "icustay_id",
+            "description": "ID number for subject within ICUSTAYS table",
+            "type": "integer",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "gender",
+            "description": "Indicates subject gender. 'M'=male or 'F'=female",
+            "type": "string",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "age",
+            "type": "number",
+            "description": "Age of patient at admission (in fractional years)",
+            "unit" : "year",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "admittime",
+            "type": "datetime",
+            "description": "Datetime of subject's admission",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "dischtime",
+            "type": "datetime",
+            "description": "Datetime of subject's discharge",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "deathtime",
+            "type": "datetime",
+            "description": "Datetime of subject's death. NaN if subject did not die",
+            "constraints" : {
+                "required" : false
+            }
+          },
+          {
+            "name": "intime",
+            "type": "datetime",
+            "description": "Datetime of subject's intake into ICU",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "outtime",
+            "type": "datetime",
+            "description": "Datetime of subject's exit from ICU",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "los_icu",
+            "type": "number",
+            "description": "Length-of-stay in the ICU in days",
+            "unit": "day",
+            "constraints" : {
+                "required" : true
+            }
+          },
+          {
+            "name": "admission_type",
+            "type": "string",
+            "description": "Category of admission: {'ELECTIVE', 'EMERGENCY', 'URGENT', 'NEWBORN'}"
+          },
+          {
+            "name": "mort_icu",
+            "type": "integer",
+            "description": "Indicates if subject died in ICU. 1 if died, 0 otherwise"
+          },
+          {
+            "name": "hospital_expire_flag",
+            "type": "integer",
+            "description": "Indicates if subject died within this hospitalization. 1 if died, 0 if otherwise"
+          },
+          {
+            "name": "hospstay_seq",
+            "type": "integer",
+            "description": "The sequential number of this patient's visit to ICU"
+          },
+          {
+            "name": "dod",
+            "type": "datetime",
+            "description": "Datetime of subject's death as obtained from external health records. NaN if subject did not die",
+            "constraints" : {
+                "required" : false
+            }
+          },
+          {
+            "name": "expire_flag",
+            "type": "integer",
+            "description": "Indicates if subject's date of death is recorded. 1 if date of death recorded, 0 if otherwise"
+          },
+          {
+            "name": "survival_days",
+            "type": "integer",
+            "description": "Length of survival after ICU admission if known"
+          },
+          {
+            "name": "outcome",
+            "type": "integer",
+            "description": "Survived at least 30 days (or other specified time) after ICU admission. 1 is survived, 0 is died"
+          }
+        ],
+        "missingValues": "nan",
+        "primaryKey": ["subject_id", "hadm_id", "icustay_id"]
+      }
+    }
+  ]
+}
