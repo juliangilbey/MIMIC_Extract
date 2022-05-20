@@ -1,6 +1,12 @@
 # **MIMIC-Extract**:A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III
 
 # About
+This is a fork of the **MIMIC-Extract**
+[repository](https://github.com/MLforHealth/MIMIC_Extract) for our
+imputation experiments.  For more details on how to use this fork, see
+[README-imputation.md](README-imputation.md).  The rest of this README
+is the original **MIMIC-Extract** README.
+
 This repo contains code for **MIMIC-Extract**. It has been divided into the following folders:
 * Data: Locally contains the data to be extracted.
 * Notebooks: Jupyter Notebooks demonstrating test cases and usage of output data in risk and intervention prediction tasks.
