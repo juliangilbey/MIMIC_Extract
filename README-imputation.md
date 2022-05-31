@@ -27,8 +27,7 @@ regenerate our data.
         setup, you might be requested to sudo to the postgres account
         to set up this new user.
 
-    * `make mimic-gz datadir=MIMIC_III_GZIPPED_DIR DBHOST=localhost`
-        `DBPORT=5433 DBUSER=mimic DBPASS=mimic`
+    * `make mimic-gz datadir=MIMIC_III_GZIPPED_DIR DBHOST=localhost DBPORT=5433 DBUSER=mimic DBPASS=mimic`
        
          Note that this code is all on one line, and
          `MIMIC_III_GZIPPED_DIR` should be replaced by the actual path
@@ -40,11 +39,9 @@ regenerate our data.
    appropriate; each of these commands is one line.  The second one
    will likely take a long time to run.
 
-    * `psql "host=localhost port=5433 dbname=mimic user=mimic password=mimic`
-        `options=--search_path=mimiciii" -f postgres-functions.sql`
+    * `psql "host=localhost port=5433 dbname=mimic user=mimic password=mimic options=--search_path=mimiciii" -f postgres-functions.sql`
 
-    * `DBCONNEXTRA="host=localhost port=5433 user=mimic password=mimic"`
-        `bash postgres_make_concepts.sh`
+    * `DBCONNEXTRA="host=localhost port=5433 user=mimic password=mimic" bash postgres_make_concepts.sh`
 
 5. Clone this repository
     [https://github.com/juliangilbey/MIMIC_Extract.git](https://github.com/juliangilbey/MIMIC_Extract.git)
@@ -80,9 +77,7 @@ regenerate our data.
 
     c. Go into utils and run the following, all on one line:
 
-        `MIMIC_CODE_DIR=../../mimic-code/mimic-iii`
-        `DBCONNEXTRA="host=localhost port=5433 user=mimic password=mimic"`
-        `bash postgres_make_extended_concepts.sh`
+        `MIMIC_CODE_DIR=../../mimic-code/mimic-iii DBCONNEXTRA="host=localhost port=5433 user=mimic password=mimic" bash postgres_make_extended_concepts.sh`
         
         In this command, `MIMIC_CODE_DIR` points to the
         `mimic-code/mimic-iii` repository; this assumes that the
@@ -92,8 +87,7 @@ regenerate our data.
 
     d. Run the following (on one line as usual):
 
-        `psql "host=localhost port=5433 user=mimic password=mimic dbname=mimic"`
-        `-f niv-durations.sql`
+        `psql "host=localhost port=5433 user=mimic password=mimic dbname=mimic" -f niv-durations.sql`
 
     e. Run the following:
     
