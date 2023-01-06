@@ -91,7 +91,7 @@ regenerate our data.
 
     e. Run the following:
     
-        `make build_curated_from_psql`
+        `make build_imputation`
 
         It will take a fairly long time.
 
